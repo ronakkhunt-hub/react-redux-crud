@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.addButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-right: 50px;
+}
+
+.actionButton button {
+  margin-left: 20px;
+}
