@@ -1,0 +1,30 @@
+const randomColor = {
+    A: '445c64',
+    B: '3e3e3e',
+    C: '64948c',
+    D: '419bab',
+    E: '00b1e1',
+    F: '5b6f7c',
+    G: '2c91fe',
+    H: '917d84',
+    I: 'e29f86',
+    J: '302417',
+    K: 'a8d2c5',
+    L: 'ecae1f',
+    M: '397989',
+    N: 'e95e29',
+    O: '4c70a4',
+    P: '499c50',
+    Q: '89bbec',
+    R: '0c3c7c',
+    S: 'c0d0bd',
+    T: '9b5a72',
+    U: '61c6fb',
+    V: '271dd3',
+    W: 'bfb6dd',
+    X: '3cb371',
+    Y: '787878',
+    Z: '897841'
+  }
+
+  module.exports = randomColor

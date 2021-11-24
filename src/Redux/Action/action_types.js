@@ -1,5 +1,7 @@
 module.exports = {
-    AddTodo: 'ADD_TODO',
-    DeleteTodo: 'DELETE_TODO',
-    UpdateTodo: 'UPDATE_TODO'
+    ADD_TODO: 'ADD_TODO',
+    DELETE_TODO: 'DELETE_TODO',
+    UPDATE_TODO: 'UPDATE_TODO',
+
+    ADD_USER: 'ADD_USER'
 }

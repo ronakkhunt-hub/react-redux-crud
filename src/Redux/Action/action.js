@@ -1,19 +1,17 @@
-import { AddTodo, DeleteTodo, UpdateTodo } from "./action_types"
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from "./action_types"
 
-export const add_Todo = (data) => {
-    return {
-        type: AddTodo,
-        data: data
-    }
-}
+export const add_Todo = (data) => ({
+    type: ADD_TODO,
+    data: data
+})
 
 export const delete_Todo = (id) => ({
-    type: DeleteTodo,
+    type: DELETE_TODO,
     data: id
 })
 
 export const update_Todo = (id, data) => ({
-    type: UpdateTodo,
+    type: UPDATE_TODO,
     id,
     data
 })

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Modal, Button, Table, InputGroup, FormControl, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { add_Todo, delete_Todo, update_Todo } from '../Redux/Action/action';
+import { add_Todo, delete_Todo, update_Todo } from '../../Redux/Action/action';
 import './Todo.css'
 
-function User() {
+function Todo() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [updateId, setUpdateId] = useState("");
@@ -19,7 +19,12 @@ function User() {
     }
 
     const addTodos = () => {
-        setShow(true)
+        const getData = localStorage.getItem('token');
+        if (getData) {
+            setShow(true)
+        } else {
+            alert('Please Login First')
+        }
         setCrudButton('add')
         setTitle("")
         setDescription("")
@@ -35,15 +40,26 @@ function User() {
     }
 
     const updateTodoHandler = (id, item) => {
-        setUpdateId(id)
-        setShow(true)
-        setTitle(item.title)
-        setDescription(item.description)
-        setCrudButton('update')
+        const getData = localStorage.getItem('token');
+        if (getData) {
+            setShow(true)
+            setUpdateId(id)
+            setShow(true)
+            setTitle(item.title)
+            setDescription(item.description)
+            setCrudButton('update')
+        } else {
+            alert('Please Login First')
+        }
     }
 
     const deleteTodoHandler = (id) => {
-        dispatch(delete_Todo({ id }))
+        const getData = localStorage.getItem('token');
+        if (getData) {
+            dispatch(delete_Todo({ id }))
+        } else {
+            alert('Please Login First')
+        }
     }
 
     return (
@@ -67,7 +83,7 @@ function User() {
                             <td style={{ paddingTop: '15px', textAlign: 'center' }}>{i + 1}</td>
                             <td style={{ paddingTop: '15px', textAlign: 'center' }}>{item.title}</td>
                             <td style={{ paddingTop: '15px', textAlign: 'center' }}>{item && item.description && item.description.length >= 15 ? item.description.toString().substring(0, 15) + '...' : item.description}</td>
-                            <td style={{textAlign: 'center' }}>
+                            <td style={{ textAlign: 'center' }}>
                                 <div className="actionButton">
                                     <Button onClick={() => deleteTodoHandler(item.id)} variant="danger">Delete</Button>
                                     <Button onClick={() => updateTodoHandler(item.id, item)} variant="primary">Update</Button>
@@ -109,7 +125,7 @@ function User() {
                                 Cancel
                             </Button>
                             <Button variant="primary" onClick={submitHandler}>
-                                {crudButton === 'add' ? 'Add': 'Update'}
+                                {crudButton === 'add' ? 'Add' : 'Update'}
                             </Button>
                         </Modal.Footer>
                     </Modal.Body>
@@ -119,4 +135,4 @@ function User() {
     )
 }
 
-export default User
+export default Todo
